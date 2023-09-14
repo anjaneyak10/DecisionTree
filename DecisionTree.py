@@ -28,7 +28,7 @@ with open("irisEntropy.dot", 'w') as f:
 clf = tree.DecisionTreeClassifier()
 clf.criterion='log_loss'
 clf.fit(x_train,y_train)
-print("Accuracy with training 67 % of the data and testing with 33% for criterion = entropy",clf.score(x_test,y_test))
+print("Accuracy with training 67 % of the data and testing with 33% for criterion = log_loss",clf.score(x_test,y_test))
 with open("irisLogLoss.dot", 'w') as f:
     f = tree.export_graphviz(clf, out_file=f)
 
@@ -36,7 +36,6 @@ with open("irisLogLoss.dot", 'w') as f:
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.33, random_state=12)
 clf = tree.DecisionTreeClassifier()
 clf.fit(x_train,y_train)
-print("Accuracy with training 67 % of the data and testing with 33% ",clf.score(x_test,y_test))
 #Retraining the classifier using the 67% of the remaining data and then testing with the remaining 33%
 x_train, x_test, y_train, y_test = train_test_split(x_test, y_test, test_size=0.33, random_state=12)
 clf.fit(x_train,y_train)
