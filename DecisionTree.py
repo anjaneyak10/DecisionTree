@@ -1,3 +1,5 @@
+import numpy.version
+import pandas.util.version
 from sklearn.model_selection import train_test_split
 import pandas as pd
 from numpy import genfromtxt
@@ -12,11 +14,11 @@ y = pd.DataFrame(irisDataset[1:,4])
 
 
 # Training the code on 67% of the data and testing with 33%
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.33, random_state=12)
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=12)
 clf = tree.DecisionTreeClassifier()
 clf.fit(x_train,y_train)
 print("Accuracy with training 67 % of the data and testing with 33% ",clf.score(x_test,y_test))
-with open("iris.dot", 'w') as f:
+with open("iris20Percent.dot", 'w') as f:
     f = tree.export_graphviz(clf, out_file=f)
 
 #Training the model with classifier criterion = entropy
