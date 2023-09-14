@@ -3,9 +3,12 @@ import pandas as pd
 from numpy import genfromtxt
 from sklearn import tree
 
+# Reading the data from csv file using numpy
 irisDataset = genfromtxt('IrisNew.csv', delimiter=',',dtype=None,encoding=None)
-x = pd.DataFrame(irisDataset[1:,:4])  # Extracting the features that is the first four columns
-y = pd.DataFrame(irisDataset[1:,4]) # Extracting the target variable that is the 5th column
+# Extracting the features that is the first four columns
+x = pd.DataFrame(irisDataset[1:,:4])
+# Extracting the target variable that is the 5th column
+y = pd.DataFrame(irisDataset[1:,4])
 
 
 # Training the code on 67% of the data and testing with 33%
